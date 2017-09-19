@@ -7,7 +7,7 @@ ENV LANG C.UTF-8
 # Setup base
 RUN apk upgrade --no-cache --available \
  && apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing \
-        jq motion
+        jq motion v4l-utils-libs
 
 # Copy data
 COPY run.sh /

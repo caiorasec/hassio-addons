@@ -36,4 +36,4 @@ if [ ! -f "$CONFIG" ]; then
 	CONFIG=/etc/motion.conf
 fi
 # start server
-exec motion -c $CONFIG < /dev/null
+exec LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so motion -c $CONFIG < /dev/null
