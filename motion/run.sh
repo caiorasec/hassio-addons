@@ -20,6 +20,7 @@ PICTURENAME=$(jq --raw-output ".picture_name" $CONFIG_PATH)
 echo "[Info] Show connected usb devices"
 lsusb
 ls -al /dev/video*
+ls -la /usr/lib/libv4l
 
 if [ ! -f "$CONFIG" ]; then
 	sed -i "s|%%VIDEODEVICE%%|$VIDEODEVICE|g" /etc/motion.conf
@@ -36,4 +37,4 @@ if [ ! -f "$CONFIG" ]; then
 	CONFIG=/etc/motion.conf
 fi
 # start server
-exec LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so motion -c $CONFIG < /dev/null
+LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so motion -c $CONFIG < /dev/null
