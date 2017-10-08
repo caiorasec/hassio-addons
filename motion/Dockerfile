@@ -1,5 +1,5 @@
 
-FROM %%BASE_IMAGE%%
+FROM homeassistant/armhf-base
 
 # Add env
 ENV LANG C.UTF-8
